@@ -16,8 +16,6 @@ export const env = {
   node: getOsEnv('APP_ENV'),
 
   app: {
-    name: getOsEnv('APP_NAME'),
-    host: getOsEnv('APP_URL'),
     port: normalizePort(getOsEnv('APP_PORT')) || getOsEnv('APP_PORT'),
     api_prefix: getOsEnv('API_PREFIX'),
     api_rate_limit: toNumber(getOsEnv('API_RATE_LIMIT')),

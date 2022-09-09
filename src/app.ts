@@ -8,6 +8,7 @@ Promise.all([
   express.initializeApp(),
   express.configureRateLimiter(),
   express.configureViews(),
+  express.configureExceptionHandler(),
 ]).then(() => {
   const app = express.app;
 
