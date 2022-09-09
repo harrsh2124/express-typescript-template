@@ -1,3 +1,4 @@
+import { Cron } from './app/providers/cron';
 import { Express } from './app/providers/express';
 import { logger } from './app/providers/logger';
 import { Server } from './app/providers/server';
@@ -9,6 +10,7 @@ Promise.all([
   express.configureRateLimiter(),
   express.configureViews(),
   express.configureExceptionHandler(),
+  Cron.setup(),
 ]).then(() => {
   const app = express.app;
 
