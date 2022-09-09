@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express';
-import { PingController } from '../../app/http/controllers/api/PingController';
-import { logger } from '../../app/providers/logger';
+import { PingController } from '../app/http/controllers/PingController';
+import { logger } from '../app/providers/logger';
 
 export const router = Router();
 
