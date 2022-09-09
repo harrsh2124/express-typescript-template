@@ -1,11 +1,12 @@
 import { Sequelize } from 'sequelize';
+import { env } from '../../env';
 import { logger } from './logger';
 
 export const dbConnection = new Sequelize({
   dialect: 'mysql',
-  username: 'root',
-  password: 'root',
-  database: 'express-template',
+  username: env.db.db_username,
+  password: env.db.db_password,
+  database: env.db.db_database,
 
   logging: (msg) => logger.debug(msg),
   logQueryParameters: true,

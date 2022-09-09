@@ -29,4 +29,10 @@ export const env = {
   logger: {
     level: getOsEnvOptional('PINO_LOG_LEVEL'),
   },
+
+  db: {
+    db_database: getOsEnv('DB_DATABASE'),
+    db_username: getOsEnv('DB_USERNAME'),
+    db_password: getOsEnv('DB_PASSWORD'),
+  },
 };
