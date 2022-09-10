@@ -1,8 +1,13 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import _ from 'lodash';
 import { logger } from '../../providers/logger';
 
-export const ResponseHandler = (res: Response, data?: any, error?: any) => {
+export const ResponseHandler = (
+  req: Request,
+  res: Response,
+  data?: any,
+  error?: any
+) => {
   let status = true;
   let message = _.get(data, 'message', '');
 
@@ -14,9 +19,10 @@ export const ResponseHandler = (res: Response, data?: any, error?: any) => {
   }
 
   return res.json({
-    status,
+    status: req.statusCode !== 500,
     data: {
       ...data,
+      status,
       message,
     },
   });

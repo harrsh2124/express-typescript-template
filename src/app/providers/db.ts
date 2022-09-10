@@ -8,14 +8,13 @@ export const sequelizeConnection = new Sequelize({
   password: env.db.db_password,
   database: env.db.db_database,
 
-  logging: (msg) => logger.debug(msg),
   logQueryParameters: true,
 });
 
 export const initializeDbConnection = async () => {
   try {
     await sequelizeConnection.authenticate();
-    // sequelizeConnection.sync({});
+    sequelizeConnection.sync();
     logger.info('Connected to the database.');
   } catch (error) {
     logger.info('Unable to connect to the database.');

@@ -17,4 +17,27 @@ export const User = sequelizeConnection.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+
+  fullName: {
+    type: DataTypes.VIRTUAL,
+    get() {
+      return `${this.getDataValue('firstName')} ${this.getDataValue(
+        'lastName'
+      )}`;
+    },
+    set(value) {
+      throw new Error('Do not try to set the `fullName` value!');
+    },
+  },
+
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
+
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
