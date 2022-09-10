@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize';
 import { env } from '../../env';
 import { logger } from './logger';
 
-export const dbConnection = new Sequelize({
+export const sequelizeConnection = new Sequelize({
   dialect: 'mysql',
   username: env.db.db_username,
   password: env.db.db_password,
@@ -14,7 +14,8 @@ export const dbConnection = new Sequelize({
 
 export const initializeDbConnection = async () => {
   try {
-    await dbConnection.authenticate();
+    await sequelizeConnection.authenticate();
+    // sequelizeConnection.sync({});
     logger.info('Connected to the database.');
   } catch (error) {
     logger.info('Unable to connect to the database.');
