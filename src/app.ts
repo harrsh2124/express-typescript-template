@@ -1,5 +1,4 @@
 import { Cron } from './app/providers/cron';
-import { initializeDbConnection } from './app/providers/db';
 import { Express } from './app/providers/express';
 import { logger } from './app/providers/logger';
 import { Server } from './app/providers/server';
@@ -8,7 +7,6 @@ const express = new Express();
 
 Promise.all([
   express.initializeApp(),
-  initializeDbConnection(),
   express.configureRateLimiter(),
   express.configureViews(),
   express.configureExceptionHandler(),
