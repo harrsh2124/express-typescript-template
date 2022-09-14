@@ -10,3 +10,5 @@ TaskRouter.post(
   RequestValidator(CreateTaskRequest),
   TaskController.createTask
 );
+
+TaskRouter.delete('/delete/:id', TaskController.deleteTask);
