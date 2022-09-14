@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { prisma } from '../../providers/db';
 import { ResponseHandler } from '../middleware/ResponseHandler';
 import { CreateUser } from '../services/user/CreateUser';
+import { DeleteUser } from '../services/user/DeleteUser';
 import { GetUser } from '../services/user/GetUser';
 
 export class UserController {
@@ -42,6 +43,22 @@ export class UserController {
       return ResponseHandler(req, res, {
         user,
         message: 'User fetched successfully.',
+      });
+    } catch (error) {
+      return ResponseHandler(req, res, null, error);
+    }
+  }
+
+  public static async deleteUser(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const user = await DeleteUser({
+        id: +id,
+      });
+
+      return ResponseHandler(req, res, {
+        user,
+        message: 'User deleted successfully.',
       });
     } catch (error) {
       return ResponseHandler(req, res, null, error);

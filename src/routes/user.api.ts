@@ -12,3 +12,5 @@ UserRouter.post(
 );
 
 UserRouter.get('/get', UserController.getUser);
+
+UserRouter.delete('/delete/:id', UserController.deleteUser);
