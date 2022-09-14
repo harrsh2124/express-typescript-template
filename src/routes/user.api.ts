@@ -10,3 +10,5 @@ UserRouter.post(
   RequestValidator(CreateUserRequest),
   UserController.createUser
 );
+
+UserRouter.get('/get', UserController.getUser);

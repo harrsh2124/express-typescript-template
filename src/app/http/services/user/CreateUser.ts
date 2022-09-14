@@ -24,6 +24,5 @@ export const CreateUser = async ({
     },
   });
 
-  console.log(newUser);
   return newUser;
 };

@@ -1,6 +1,7 @@
 import { Request, Response, Router } from 'express';
 import { PingController } from '../app/http/controllers/PingController';
 import { logger } from '../app/providers/logger';
+import { TaskRouter } from './task.api';
 import { UserRouter } from './user.api';
 
 export const router = Router();
@@ -10,6 +11,7 @@ router.get('/', PingController.pong);
 
 // Add other routes
 router.use('/user', UserRouter);
+router.use('/task', TaskRouter);
 
 /**
  * 404 api redirects
