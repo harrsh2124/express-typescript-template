@@ -6,11 +6,20 @@ export const GetUser = async () => {
       id: 1,
     },
     select: {
+      id: true,
+      firstName: true,
+      lastName: true,
+      contactNumber: true,
+      email: true,
+      createdAt: true,
+      updatedAt: true,
       tasks: {
         select: {
           id: true,
           title: true,
           isCompleted: true,
+          createdAt: true,
+          updatedAt: true,
         },
       },
     },
